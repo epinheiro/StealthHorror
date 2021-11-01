@@ -9,14 +9,14 @@ public class PlayerController : MonoBehaviour
     float runningModifier = 1.75f;
 
     ///////////// Control references /////////////
-    [SerializeField] Room startingRoom;
+    [SerializeField] LayoutController map;
     Room currentRoom;
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        currentRoom = startingRoom;
+        currentRoom = map.CurrentRoom;
     }
 
     // Update is called once per frame
