@@ -5133,7 +5133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1538544621}
+  - {fileID: 1287875471}
+  - {fileID: 1873624291}
+  - {fileID: 639742706}
 --- !u!1 &701458534
 GameObject:
   m_ObjectHideFlags: 0
@@ -6315,7 +6319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1757999677}
 --- !u!1 &844278512
 GameObject:
   m_ObjectHideFlags: 0
@@ -8792,7 +8797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1454351381}
+  - {fileID: 680101173}
 --- !u!1 &1295197522
 GameObject:
   m_ObjectHideFlags: 0
@@ -9002,7 +9009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1757999677}
 --- !u!1 &1322011748
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,7 +9938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1757999677}
+  - {fileID: 639742706}
 --- !u!1 &1454351379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9976,7 +9986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1287875471}
+  - {fileID: 1728764698}
+  - {fileID: 1757999677}
 --- !u!1 &1455177763
 GameObject:
   m_ObjectHideFlags: 0
@@ -10586,7 +10599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 680101173}
 --- !u!1 &1557113191
 GameObject:
   m_ObjectHideFlags: 0
@@ -11827,7 +11841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1454351381}
+  - {fileID: 639742706}
 --- !u!1 &1741516810
 GameObject:
   m_ObjectHideFlags: 0
@@ -12057,7 +12073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 1454351381}
+  - {fileID: 1309324891}
+  - {fileID: 807762505}
+  - {fileID: 1417592691}
 --- !u!1 &1759056456
 GameObject:
   m_ObjectHideFlags: 0
@@ -13107,7 +13127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f763908c37e149ab8857fbbf42854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjacentRooms: []
+  adjacentRooms:
+  - {fileID: 680101173}
 --- !u!1 &1897232768
 GameObject:
   m_ObjectHideFlags: 0
