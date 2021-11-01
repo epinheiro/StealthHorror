@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     ///////////// Control references /////////////
     [SerializeField] LayoutController map;
     Room currentRoom;
+    Room adjacentRoom;
+    bool canMakeTransition;
 
 
     // Start is called before the first frame update
@@ -31,6 +33,14 @@ public class PlayerController : MonoBehaviour
         if(currentRoom.IsPointInsideConvexPolygon(nextPositon))
         {
             this.transform.position = nextPositon;
+            adjacentRoom = currentRoom.IsPointInRoomTransition(nextPositon);
+            canMakeTransition = adjacentRoom != null;
+            // if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
+            if(canMakeTransition && Input.GetButtonDown("Jump"))
+            {
+                map.GoToRoom(adjacentRoom);
+                currentRoom = adjacentRoom;
+            }
         }
     }
 }

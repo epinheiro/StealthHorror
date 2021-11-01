@@ -9,10 +9,17 @@ public class LayoutController : MonoBehaviour
 
     void Awake()
     {
-        foreach(Room room in Map)
+        MakeOnlyVisibleCurrentRoom();
+    }
+
+    private void MakeOnlyVisibleCurrentRoom()
+    {
+        foreach (Room room in Map)
         {
-            if(room != CurrentRoom)
+            if (room != CurrentRoom)
                 ChangeChildAlpha(room.gameObject, 0);
+            else
+                ChangeChildAlpha(room.gameObject, 1);
         }
     }
 
@@ -36,5 +43,11 @@ public class LayoutController : MonoBehaviour
             }
         }
         
+    }
+
+    public void GoToRoom(Room room)
+    {
+        CurrentRoom = room;
+        MakeOnlyVisibleCurrentRoom();
     }
 }

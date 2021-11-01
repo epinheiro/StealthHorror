@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
 
     List<RoomColliderPoints> roomLimitsList;
 
+    [SerializeField] Room[] adjacentRooms;
+
     // public Transform position; // For debug, if necessary
 
     void Awake()
@@ -72,5 +74,15 @@ public class Room : MonoBehaviour
             result |= allPositive || allNegative;
         }
         return result;
+    }
+
+    public Room IsPointInRoomTransition(Vector2 point)
+    {
+        foreach(Room room in adjacentRooms)
+        {
+            if(room.IsPointInsideConvexPolygon(point))
+                return room;
+        }
+        return null;
     }
 }
