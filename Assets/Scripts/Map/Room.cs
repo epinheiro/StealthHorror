@@ -1,23 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
     PolygonCollider2D roomCollider;
-    Vector2[] originalRoomLimits;
-    Vector2[] translatedRoomLimits;
+    RoomColliderPoints roomLimits;
 
     // public Transform position; // For debug, if necessary
 
     void Awake()
     {
         roomCollider = this.transform.Find("RoomCollider").GetComponent<PolygonCollider2D>();
-        originalRoomLimits = roomCollider.points;
-        int arraySize = originalRoomLimits.Length;
-        translatedRoomLimits = new Vector2[arraySize];
-        Array.Copy(originalRoomLimits, translatedRoomLimits, originalRoomLimits.Length);
+        roomLimits = new RoomColliderPoints(roomCollider.points);
     }
 
     void Update()
@@ -28,18 +22,18 @@ public class Room : MonoBehaviour
     // https://demonstrations.wolfram.com/AnEfficientTestForAPointToBeInAConvexPolygon/
     public bool IsPointInsideConvexPolygon(Vector2 point)
     {
-        int numberOfPoints = originalRoomLimits.Length;
+        int numberOfPoints = roomLimits.crude.Length;
 
         for(int i=0; i<numberOfPoints; i++)
         {
             // Guarantees the original state
-            translatedRoomLimits[i] = originalRoomLimits[i];
+            roomLimits.trans[i] = roomLimits.crude[i];
 
             // Translate all polygon points considering point as origin
-            translatedRoomLimits[i] = originalRoomLimits[i] - point;
+            roomLimits.trans[i] = roomLimits.crude[i] - point;
 
             // Translate all polygon points considering gameObject position
-            translatedRoomLimits[i] += ((Vector2)this.transform.position);
+            roomLimits.trans[i] += ((Vector2)this.transform.position);
         }
 
         // Calculate angle between two points and check signs
@@ -48,8 +42,8 @@ public class Room : MonoBehaviour
 
         for(int i=0; i<numberOfPoints; i++)
         {
-            Vector3 pointI = translatedRoomLimits[i];
-            Vector3 pointJ = translatedRoomLimits[(i+1)%numberOfPoints];
+            Vector3 pointI = roomLimits.trans[i];
+            Vector3 pointJ = roomLimits.trans[(i+1)%numberOfPoints];
 
             float operation = pointJ.x*pointI.y - pointI.x*pointJ.y;
             bool angleSignPositive = operation > 0;
