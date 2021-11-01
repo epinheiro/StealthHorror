@@ -1,0 +1,864 @@
+fileFormatVersion: 2
+guid: b62e0f97fdd91eb4982dc421b796776a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2649463040169708594
+    second: Mythos_Windows_0
+  - first:
+      213: -6972243029351444694
+    second: Mythos_Windows_1
+  - first:
+      213: 5871674210319163692
+    second: Mythos_Windows_2
+  - first:
+      213: 6451939288252004437
+    second: Mythos_Windows_3
+  - first:
+      213: 6655481945707800667
+    second: Mythos_Windows_4
+  - first:
+      213: -5517097629743827401
+    second: Mythos_Windows_5
+  - first:
+      213: -184175817527075312
+    second: Mythos_Windows_6
+  - first:
+      213: 1047552769969209778
+    second: Mythos_Windows_7
+  - first:
+      213: -7922104168626870854
+    second: Mythos_Windows_8
+  - first:
+      213: -3160058760689771673
+    second: Mythos_Windows_9
+  - first:
+      213: 7973181814569250855
+    second: Mythos_Windows_10
+  - first:
+      213: -6703332076657624690
+    second: Mythos_Windows_11
+  - first:
+      213: 8574273164360810093
+    second: Mythos_Windows_12
+  - first:
+      213: 5383868811088383622
+    second: Mythos_Windows_13
+  - first:
+      213: 970646681950065088
+    second: Mythos_Windows_14
+  - first:
+      213: 8974104194852736177
+    second: Mythos_Windows_15
+  - first:
+      213: -5799504968376218447
+    second: Mythos_Windows_16
+  - first:
+      213: -7980650396668726765
+    second: Mythos_Windows_17
+  - first:
+      213: 5662234278863684323
+    second: Mythos_Windows_18
+  - first:
+      213: 2400255423668664781
+    second: Mythos_Windows_19
+  - first:
+      213: 3461665762169945380
+    second: Mythos_Windows_20
+  - first:
+      213: 6329871012274444569
+    second: Mythos_Windows_21
+  - first:
+      213: -4095736608319362028
+    second: Mythos_Windows_22
+  - first:
+      213: -3851469993868982942
+    second: Mythos_Windows_23
+  - first:
+      213: -3205651462814411738
+    second: Mythos_Windows_24
+  - first:
+      213: -4226834958763199083
+    second: Mythos_Windows_25
+  - first:
+      213: 2795982008648618242
+    second: Mythos_Windows_26
+  - first:
+      213: 9208531767000424422
+    second: Mythos_Windows_27
+  - first:
+      213: -2393614758852080381
+    second: Mythos_Windows_28
+  - first:
+      213: -8624134950032222885
+    second: Mythos_Windows_29
+  - first:
+      213: -7622478964578835765
+    second: Mythos_Windows_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mythos_Windows_0
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 676
+        width: 46
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3782507673b3bd0800000000000000
+      internalID: -2649463040169708594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 673
+        width: 49
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f40d3c7ed9d3f90800000000000000
+      internalID: -6972243029351444694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 760
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2165e6b5906c7150800000000000000
+      internalID: 5871674210319163692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 687
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558b5ac4994e98950800000000000000
+      internalID: 6451939288252004437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_4
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 676
+        width: 64
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5860fe31950d5c50800000000000000
+      internalID: 6655481945707800667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_5
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 673
+        width: 64
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73638f3cfe45f63b0800000000000000
+      internalID: -5517097629743827401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_6
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 680
+        width: 62
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ed41cd11da17df0800000000000000
+      internalID: -184175817527075312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 687
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1cd71b1b7a98e00800000000000000
+      internalID: 1047552769969209778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_8
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 687
+        width: 36
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5aa535b380f0290800000000000000
+      internalID: -7922104168626870854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 585
+        width: 72
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b99b3cc473524d0800000000000000
+      internalID: -3160058760689771673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_10
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 576
+        width: 45
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720310bdd9e66ae60800000000000000
+      internalID: 7973181814569250855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_11
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 576
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e893757fdfaf8f2a0800000000000000
+      internalID: -6703332076657624690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 584
+        width: 27
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ef3e8b300fdf670800000000000000
+      internalID: 8574273164360810093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_13
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 585
+        width: 27
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e4a32a82857ba40800000000000000
+      internalID: 5383868811088383622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_14
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 577
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c19b08b30e687d00800000000000000
+      internalID: 970646681950065088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_15
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 576
+        width: 69
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc4a87e73c6a8c70800000000000000
+      internalID: 8974104194852736177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_16
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 576
+        width: 67
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc82d655f4048fa0800000000000000
+      internalID: -5799504968376218447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_17
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 582
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312fafd5fb80f3190800000000000000
+      internalID: -7980650396668726765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_18
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 583
+        width: 48
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2c5baa31c449e40800000000000000
+      internalID: 5662234278863684323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_19
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 484
+        width: 72
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9b9f9379b6f4120800000000000000
+      internalID: 2400255423668664781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_20
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 449
+        width: 55
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d75458bae4a0030800000000000000
+      internalID: 3461665762169945380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_21
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 447
+        width: 56
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91919a8062838d750800000000000000
+      internalID: 6329871012274444569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_22
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 477
+        width: 94
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41caf8f31450927c0800000000000000
+      internalID: -4095736608319362028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_23
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 447
+        width: 73
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2650d505274dc8ac0800000000000000
+      internalID: -3851469993868982942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_24
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 447
+        width: 77
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6245c359afc3383d0800000000000000
+      internalID: -3205651462814411738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_25
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 340
+        width: 74
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59577beeff34755c0800000000000000
+      internalID: -4226834958763199083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_26
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 303
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20152e7b2d25dc620800000000000000
+      internalID: 2795982008648618242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_27
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 306
+        width: 61
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efd5fa6ad64bcf70800000000000000
+      internalID: 9208531767000424422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_28
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 336
+        width: 87
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d4d790f0c28ced0800000000000000
+      internalID: -2393614758852080381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_29
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 303
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b555c40a4fae05880800000000000000
+      internalID: -8624134950032222885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Windows_30
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 306
+        width: 68
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2246074c3873690800000000000000
+      internalID: -7622478964578835765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
