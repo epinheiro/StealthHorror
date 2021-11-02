@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class LayoutController : MonoBehaviour
@@ -49,5 +50,20 @@ public class LayoutController : MonoBehaviour
     {
         CurrentRoom = room;
         MakeOnlyVisibleCurrentRoom();
+    }
+}
+
+[CustomEditor(typeof(LayoutController))]
+class LayoutControllerSceneEditor : Editor
+{
+    void OnSceneGUI()
+    {
+        LayoutController layout = target as LayoutController;
+
+        foreach(Room room in layout.Map)
+        {
+            MapReference reference = room.transform.Find("MapReference").GetComponent<MapReference>();
+            MapReferenceSceneEditor.DrawEdges(reference);
+        }
     }
 }
