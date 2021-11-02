@@ -14,11 +14,11 @@ public class MapReference : MonoBehaviour
 
 // Based on https://docs.unity3d.com/ScriptReference/Handles.DrawLine.html
 [CustomEditor(typeof(MapReference))]
-class ConnectLineHandleExampleScript : Editor
+class MapReferenceSceneEditor : Editor
 {
-    void OnSceneGUI()
+    public static void DrawEdges(MapReference map)
     {
-        MapReference map = target as MapReference;
+        Handles.color = Color.red;
 
         if(map.pointsA == null || map.pointsB == null || map.pointsA.Length != map.pointsB.Length)
         {
@@ -32,7 +32,7 @@ class ConnectLineHandleExampleScript : Editor
         for (int i = 0; i < map.pointsA.Length; i++)
         {
             if(map.pointsA[i] != null && map.pointsB[i])
-                Handles.DrawLine(map.pointsA[i].transform.position, map.pointsB[i].transform.position);
+                Handles.DrawLine(map.pointsA[i].transform.position, map.pointsB[i].transform.position, 3);
             else
             {
                 hadError = true;
@@ -41,5 +41,10 @@ class ConnectLineHandleExampleScript : Editor
         }
 
         if(hadError) Debug.LogError(errorMessage);
+    }
+
+    void OnSceneGUI()
+    {
+        DrawEdges(target as MapReference);
     }
 }
