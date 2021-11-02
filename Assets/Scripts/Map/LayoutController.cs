@@ -7,16 +7,21 @@ public class LayoutController : MonoBehaviour
 {
     public Room PlayerCurrentRoom;
     public Room MonsterCurrentRoom;
-    [SerializeField] public List<Room> Map;
+    [SerializeField] public List<Room> Rooms;
 
     void Awake()
     {
         MakeOnlyVisibleCurrentRoom();
+
+        List<MapReference> references = new List<MapReference>();
+        foreach(Room room in Rooms)
+            references.Add(room.MapReference);
+        // references will later populate a graph 
     }
 
     private void MakeOnlyVisibleCurrentRoom()
     {
-        foreach (Room room in Map)
+        foreach (Room room in Rooms)
         {
             if (room != PlayerCurrentRoom)
                 ChangeChildAlpha(room.gameObject, 0);
@@ -61,7 +66,7 @@ class LayoutControllerSceneEditor : Editor
     {
         LayoutController layout = target as LayoutController;
 
-        foreach(Room room in layout.Map)
+        foreach(Room room in layout.Rooms)
         {
             MapReference reference = room.transform.Find("MapReference").GetComponent<MapReference>();
             MapReferenceSceneEditor.DrawEdges(reference);

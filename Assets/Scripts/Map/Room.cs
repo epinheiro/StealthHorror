@@ -10,6 +10,8 @@ public class Room : MonoBehaviour
 
     [SerializeField] Room[] adjacentRooms;
 
+    public MapReference MapReference {get; protected set;}
+
     // public Transform position; // For debug, if necessary
 
     void Awake()
@@ -21,6 +23,8 @@ public class Room : MonoBehaviour
         {
             roomLimitsList.Add(new RoomColliderPoints(collider.points));
         }
+
+        MapReference = this.transform.Find("MapReference").GetComponent<MapReference>();
     }
 
     void Update()

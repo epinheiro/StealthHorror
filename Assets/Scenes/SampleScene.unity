@@ -7112,7 +7112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCurrentRoom: {fileID: 639742706}
   MonsterCurrentRoom: {fileID: 1454351381}
-  Map:
+  Rooms:
   - {fileID: 1728764698}
   - {fileID: 1757999677}
   - {fileID: 1309324891}
