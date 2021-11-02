@@ -6,9 +6,9 @@ public class MapReference : MonoBehaviour
     public GameObject[] pointsA;
     public GameObject[] pointsB;
 
-    public Edge GetEdge(int index)
+    public MapGraphEdge GetEdge(int index)
     {
-        return new Edge(pointsA[index], pointsB[index]);
+        return new MapGraphEdge(pointsA[index], pointsB[index]);
     }
 }
 
