@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,17 @@ public class MapReference : MonoBehaviour
     public MapGraphEdge GetEdge(int index)
     {
         return new MapGraphEdge(pointsA[index], pointsB[index]);
+    }
+
+    public List<MapGraphEdge> GetEdges()
+    {
+        List<MapGraphEdge> edges = new List<MapGraphEdge>();
+        int size = pointsA.Length;
+        for(int i=0; i<size; i++)
+        {
+            edges.Add(GetEdge(i));
+        }
+        return edges;
     }
 }
 
