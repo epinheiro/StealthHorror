@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class LayoutController : MonoBehaviour
 {
-    public Room CurrentRoom;
+    public Room PlayerCurrentRoom;
+    public Room MonsterCurrentRoom;
     [SerializeField] public List<Room> Map;
 
     void Awake()
@@ -17,7 +18,7 @@ public class LayoutController : MonoBehaviour
     {
         foreach (Room room in Map)
         {
-            if (room != CurrentRoom)
+            if (room != PlayerCurrentRoom)
                 ChangeChildAlpha(room.gameObject, 0);
             else
                 ChangeChildAlpha(room.gameObject, 1);
@@ -48,7 +49,7 @@ public class LayoutController : MonoBehaviour
 
     public void GoToRoom(Room room)
     {
-        CurrentRoom = room;
+        PlayerCurrentRoom = room;
         MakeOnlyVisibleCurrentRoom();
     }
 }
