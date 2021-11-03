@@ -49,19 +49,24 @@ public class MapGraph
         if ( !nodes.ContainsKey(point1ID) )
         {
             if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEW [{point1.transform.parent.parent.name}] {point1.gameObject.name}");
-            if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
-            nodes.Add(point1ID, new MapGraphNode(point1, point2));
-            ProcessNode(point2, point1);
+            MapGraphNode newNode = new MapGraphNode(point1);
+            nodes.Add(point1ID, newNode);
+
+            InsertNeighbors(newNode, point1, point2);
         }
         else
         {
             MapGraphNode node = nodes[point1ID];
             if ( !node.ContainsAdjacent(point2) )
-            {
-                if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
-                node.InsertNeighbors(point2);
-                ProcessNode(point2, point1);
-            }
+                InsertNeighbors(node, point1, point2);
         }
+    }
+
+    void InsertNeighbors(MapGraphNode node, GameObject point1, GameObject point2)
+    {
+        int point1ID = point1.gameObject.GetInstanceID();
+        if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
+        node.InsertNeighbors(point2);
+        ProcessNode(point2, point1);
     }
 }
