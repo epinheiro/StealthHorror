@@ -6,23 +6,23 @@ public class MapGraphNode
 {
     public GameObject Vertex {get; protected set;}
     public NodeType type {get; protected set;}
-    HashSet<GameObject> neighbors;
+    public HashSet<GameObject> Neighbors;
 
     public MapGraphNode(GameObject vertex, GameObject adjacent)
     {
         this.Vertex = vertex;
         type = (NodeType) Enum.Parse(typeof(NodeType), vertex.tag, true);
-        neighbors = new HashSet<GameObject>();
-        neighbors.Add(adjacent);
+        Neighbors = new HashSet<GameObject>();
+        Neighbors.Add(adjacent);
     }
 
     public bool ContainsAdjacent(GameObject adjacent)
     {
-        return neighbors.Contains(adjacent);
+        return Neighbors.Contains(adjacent);
     }
 
     public bool InsertNeighbors(GameObject adjacent)
     {
-        return neighbors.Add(adjacent);
+        return Neighbors.Add(adjacent);
     }
 }
