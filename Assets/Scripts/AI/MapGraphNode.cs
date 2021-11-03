@@ -8,11 +8,21 @@ public class MapGraphNode
     public NodeType type {get; protected set;}
     public HashSet<GameObject> Neighbors;
 
-    public MapGraphNode(GameObject vertex, GameObject adjacent)
+    private void ConstructorBase(GameObject vertex)
     {
         this.Vertex = vertex;
-        type = (NodeType) Enum.Parse(typeof(NodeType), vertex.tag, true);
+        type = (NodeType)Enum.Parse(typeof(NodeType), vertex.tag, true);
         Neighbors = new HashSet<GameObject>();
+    }
+
+    public MapGraphNode(GameObject vertex)
+    {
+        ConstructorBase(vertex);
+    }
+
+    public MapGraphNode(GameObject vertex, GameObject adjacent)
+    {
+        ConstructorBase(vertex);
         Neighbors.Add(adjacent);
     }
 
