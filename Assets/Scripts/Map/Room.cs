@@ -10,6 +10,10 @@ public class Room : MonoBehaviour
 
     [SerializeField] Room[] adjacentRooms;
 
+    [SerializeField] GameObject[] nodeToAdjacent;
+
+    public Dictionary<Room, GameObject> nodeToAdjacentDict;
+
     public MapReference MapReference {get; protected set;}
 
     // public Transform position; // For debug, if necessary
@@ -17,6 +21,7 @@ public class Room : MonoBehaviour
     void Awake()
     {
         roomLimitsList = new List<RoomColliderPoints>();
+        nodeToAdjacentDict = new Dictionary<Room, GameObject>();
 
         PolygonCollider2D[] colliders = this.transform.Find("RoomCollider").GetComponents<PolygonCollider2D>();
         foreach(PolygonCollider2D collider in colliders)
@@ -25,6 +30,18 @@ public class Room : MonoBehaviour
         }
 
         MapReference = this.transform.Find("MapReference").GetComponent<MapReference>();
+
+        if(adjacentRooms.Length == nodeToAdjacent.Length)
+        {
+            for(int i=0; i<adjacentRooms.Length; i++)
+            {
+                nodeToAdjacentDict.Add(adjacentRooms[i], nodeToAdjacent[i]);
+            }
+        }
+        else
+        {
+            Debug.LogError($"adjacentRooms[{adjacentRooms.Length}] and nodeToAdjacent [{nodeToAdjacent.Length}] do not have the same lenght to make the dictionary");
+        }
     }
 
     void Update()
@@ -88,5 +105,12 @@ public class Room : MonoBehaviour
                 return room;
         }
         return null;
+    }
+
+    public GameObject GetTransitionNode(Room nodeToTransition)
+    {
+        GameObject gameObject;
+        this.nodeToAdjacentDict.TryGetValue(nodeToTransition, out gameObject);
+        return gameObject;
     }
 }

@@ -24,11 +24,18 @@ public class MapGraph
             MapReference mapRef = room.MapReference;
             references.Add(mapRef); // Is it needed?
 
+            /// Inner paths
             List<MapGraphEdge> edges = mapRef.GetEdges();
-            if(debugPrint) Debug.LogError($"MapGraph Room {room.name} - edges [{edges.Count}]");
+            if(debugPrint) Debug.LogError($"MapGraph Room {room.name} - edges [{edges.Count}] - adjacents rooms [{room.nodeToAdjacentDict.Count}]");
             foreach(MapGraphEdge edge in edges)
             {
                 ProcessNode(edge.PointA, edge.PointB);
+            }
+
+            /// Inter paths
+            foreach(KeyValuePair<Room, GameObject> pair in room.nodeToAdjacentDict)
+            {
+                ProcessNode(room.GetTransitionNode(pair.Key), pair.Key.GetTransitionNode(room));
             }
         }
     }

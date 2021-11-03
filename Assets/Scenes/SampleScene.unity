@@ -4450,6 +4450,10 @@ MonoBehaviour:
   - {fileID: 680101173}
   - {fileID: 1728764698}
   - {fileID: 1417592691}
+  nodeToAdjacent:
+  - {fileID: 2012324083}
+  - {fileID: 391675692}
+  - {fileID: 1102136045}
 --- !u!1 &661923128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,6 +4691,11 @@ MonoBehaviour:
   - {fileID: 1287875471}
   - {fileID: 1873624291}
   - {fileID: 639742706}
+  nodeToAdjacent:
+  - {fileID: 1379249918}
+  - {fileID: 437091748}
+  - {fileID: 632421814}
+  - {fileID: 446189}
 --- !u!1 &701458534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5391,6 +5400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentRooms:
   - {fileID: 1757999677}
+  nodeToAdjacent:
+  - {fileID: 232517705}
 --- !u!1 &808168486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,6 +7959,9 @@ MonoBehaviour:
   adjacentRooms:
   - {fileID: 1454351381}
   - {fileID: 680101173}
+  nodeToAdjacent:
+  - {fileID: 1071458611}
+  - {fileID: 448308199}
 --- !u!1 &1295197522
 GameObject:
   m_ObjectHideFlags: 0
@@ -8160,6 +8174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentRooms:
   - {fileID: 1757999677}
+  nodeToAdjacent:
+  - {fileID: 1655746629}
 --- !u!1 &1322011748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8765,6 +8781,9 @@ MonoBehaviour:
   adjacentRooms:
   - {fileID: 1757999677}
   - {fileID: 639742706}
+  nodeToAdjacent:
+  - {fileID: 1004841638}
+  - {fileID: 1665835373}
 --- !u!1 &1420652147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8845,6 +8864,10 @@ MonoBehaviour:
   - {fileID: 1287875471}
   - {fileID: 1728764698}
   - {fileID: 1757999677}
+  nodeToAdjacent:
+  - {fileID: 209639565}
+  - {fileID: 955272720}
+  - {fileID: 808168486}
 --- !u!1 &1455177763
 GameObject:
   m_ObjectHideFlags: 0
@@ -9562,6 +9585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentRooms:
   - {fileID: 680101173}
+  nodeToAdjacent:
+  - {fileID: 1994815885}
 --- !u!1 &1557113191
 GameObject:
   m_ObjectHideFlags: 0
@@ -10928,6 +10953,9 @@ MonoBehaviour:
   adjacentRooms:
   - {fileID: 1454351381}
   - {fileID: 639742706}
+  nodeToAdjacent:
+  - {fileID: 672893551}
+  - {fileID: 865593416}
 --- !u!1 &1744491917
 GameObject:
   m_ObjectHideFlags: 0
@@ -11061,6 +11089,11 @@ MonoBehaviour:
   - {fileID: 1309324891}
   - {fileID: 807762505}
   - {fileID: 1417592691}
+  nodeToAdjacent:
+  - {fileID: 1016080211}
+  - {fileID: 2009820329}
+  - {fileID: 873491783}
+  - {fileID: 761633104}
 --- !u!1 &1759056456
 GameObject:
   m_ObjectHideFlags: 0
@@ -12066,6 +12099,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentRooms:
   - {fileID: 680101173}
+  nodeToAdjacent:
+  - {fileID: 1573855750}
 --- !u!1 &1897232768
 GameObject:
   m_ObjectHideFlags: 0
