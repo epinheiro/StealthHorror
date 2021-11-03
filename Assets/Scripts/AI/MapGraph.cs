@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapGraph
 {
     bool debugPrint = false;
+    float debugDelay = 5f;
 
     List<Room> rooms;
 
@@ -30,12 +31,14 @@ public class MapGraph
             foreach(MapGraphEdge edge in edges)
             {
                 ProcessNode(edge.PointA, edge.PointB);
+                if(debugPrint) Debug.DrawLine(edge.PointA.transform.position, edge.PointB.transform.position, Color.black, debugDelay);
             }
 
             /// Inter paths
             foreach(KeyValuePair<Room, GameObject> pair in room.nodeToAdjacentDict)
             {
                 ProcessNode(room.GetTransitionNode(pair.Key), pair.Key.GetTransitionNode(room));
+                if(debugPrint) GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = pair.Value.transform.position;
             }
         }
     }
