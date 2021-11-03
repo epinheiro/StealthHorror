@@ -37,8 +37,14 @@ public class MapGraph
             /// Inter paths
             foreach(KeyValuePair<Room, GameObject> pair in room.nodeToAdjacentDict)
             {
-                ProcessNode(room.GetTransitionNode(pair.Key), pair.Key.GetTransitionNode(room));
-                if(debugPrint) GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = pair.Value.transform.position;
+                GameObject point1 = room.GetTransitionNode(pair.Key);
+                GameObject point2 = pair.Key.GetTransitionNode(room);
+                ProcessNode(point1, point2);
+                if(debugPrint)
+                {
+                    Debug.DrawLine(point1.transform.position, point2.transform.position, Color.magenta, debugDelay);
+                    GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = pair.Value.transform.position;
+                }
             }
         }
     }
