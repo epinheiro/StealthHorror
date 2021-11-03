@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : AgentController
 {
+    ///////////// Meta values /////////////
+    protected override float SimpleModifier => 1f;
+    protected override float RunningModifier => 1.75f;
+
     protected override Vector3 GetMovement()
     {
         float x = Input.GetAxis("Horizontal");

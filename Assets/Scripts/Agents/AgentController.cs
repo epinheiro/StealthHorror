@@ -5,8 +5,8 @@ using UnityEngine;
 public class AgentController : MonoBehaviour
 {
     ///////////// Meta values /////////////
-    protected float simpleModifier = 1.75f;
-    protected float runningModifier = 2.25f;
+    protected virtual float SimpleModifier => 1.75f;
+    protected virtual float RunningModifier => 2.25f;
 
     ///////////// Control references /////////////
     [SerializeField] protected LayoutController map;
@@ -23,7 +23,7 @@ public class AgentController : MonoBehaviour
     {
         Vector3 movVector = GetMovement();
 
-        Vector3 nextPositon = this.transform.position + movVector * simpleModifier * (IsRunning() ? runningModifier : 1) * Time.deltaTime;
+        Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : 1) * Time.deltaTime;
 
         if(currentRoom.IsPointInsideConvexPolygon(nextPositon))
         {
@@ -31,11 +31,12 @@ public class AgentController : MonoBehaviour
             adjacentRoom = currentRoom.IsPointInRoomTransition(nextPositon);
             canMakeTransition = adjacentRoom != null;
             // if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
-            if (canMakeTransition && IsInteracting())
-            {
-                map.GoToRoom(adjacentRoom);
-                currentRoom = adjacentRoom;
-            }
+        }
+
+        if (canMakeTransition && IsInteracting())
+        {
+            map.GoToRoom(adjacentRoom);
+            currentRoom = adjacentRoom;
         }
     }
 
