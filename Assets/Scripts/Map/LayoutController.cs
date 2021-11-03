@@ -8,15 +8,16 @@ public class LayoutController : MonoBehaviour
     public Room PlayerCurrentRoom;
     public Room MonsterCurrentRoom;
     [SerializeField] public List<Room> Rooms;
+    MapGraph map;
 
     void Awake()
     {
         MakeOnlyVisibleCurrentRoom();
+    }
 
-        List<MapReference> references = new List<MapReference>();
-        foreach(Room room in Rooms)
-            references.Add(room.MapReference);
-        // references will later populate a graph 
+    void Start()
+    {
+        map = new MapGraph(Rooms);
     }
 
     private void MakeOnlyVisibleCurrentRoom()

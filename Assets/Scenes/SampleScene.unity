@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 446190}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 30171552}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 197685483}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 209639566}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 225948249}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 232517706}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1533,7 +1533,7 @@ GameObject:
   - component: {fileID: 283033392}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2453,7 +2453,7 @@ GameObject:
   - component: {fileID: 391675693}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2981,7 +2981,7 @@ GameObject:
   - component: {fileID: 437091749}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3011,7 +3011,7 @@ GameObject:
   - component: {fileID: 448308200}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3427,7 +3427,7 @@ GameObject:
   - component: {fileID: 502012558}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4277,7 +4277,7 @@ GameObject:
   - component: {fileID: 632421815}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4515,7 +4515,7 @@ GameObject:
   - component: {fileID: 672893552}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5242,7 +5242,7 @@ GameObject:
   - component: {fileID: 761633105}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5402,7 +5402,7 @@ GameObject:
   - component: {fileID: 808168487}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5721,7 +5721,7 @@ GameObject:
   - component: {fileID: 865593417}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5751,7 +5751,7 @@ GameObject:
   - component: {fileID: 871040994}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5781,7 +5781,7 @@ GameObject:
   - component: {fileID: 873491784}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6348,7 +6348,7 @@ GameObject:
   - component: {fileID: 955272721}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6738,7 +6738,7 @@ GameObject:
   - component: {fileID: 1004841639}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6768,7 +6768,7 @@ GameObject:
   - component: {fileID: 1016080212}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6893,7 +6893,7 @@ GameObject:
   - component: {fileID: 1071458612}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7037,7 +7037,7 @@ GameObject:
   - component: {fileID: 1102136046}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8551,7 +8551,7 @@ GameObject:
   - component: {fileID: 1379249919}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8776,7 +8776,7 @@ GameObject:
   - component: {fileID: 1420652148}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9147,7 +9147,7 @@ GameObject:
   - component: {fileID: 1500214450}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9279,7 +9279,7 @@ GameObject:
   - component: {fileID: 1501397491}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9737,7 +9737,7 @@ GameObject:
   - component: {fileID: 1573855751}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10311,7 +10311,7 @@ GameObject:
   - component: {fileID: 1651550803}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10341,7 +10341,7 @@ GameObject:
   - component: {fileID: 1655746630}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10371,7 +10371,7 @@ GameObject:
   - component: {fileID: 1665835374}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13121,7 +13121,7 @@ GameObject:
   - component: {fileID: 1994815886}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13183,7 +13183,7 @@ GameObject:
   - component: {fileID: 2009820330}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13213,7 +13213,7 @@ GameObject:
   - component: {fileID: 2012324084}
   m_Layer: 0
   m_Name: Node-Door
-  m_TagString: Node-Door
+  m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13461,7 +13461,7 @@ GameObject:
   - component: {fileID: 2145949141}
   m_Layer: 0
   m_Name: Node-Room
-  m_TagString: Node-Room
+  m_TagString: Room
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
