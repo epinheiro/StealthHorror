@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446190}
   m_Layer: 0
-  m_Name: Door-EnteringHall
+  m_Name: Door-Hallway->EnteringHall
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1045,7 +1045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 209639566}
   m_Layer: 0
-  m_Name: Door-WestHallway
+  m_Name: Door-NorthWing->WestHallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1269,7 +1269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232517706}
   m_Layer: 0
-  m_Name: Door-CrossRoads
+  m_Name: Door-InmostRoom->CrossRoads
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2452,7 +2452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391675693}
   m_Layer: 0
-  m_Name: Door-CenterHallway
+  m_Name: Door-EnteringHall->CenterHallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2980,7 +2980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 437091749}
   m_Layer: 0
-  m_Name: Door-WestHallway
+  m_Name: Door-Hallway->WestHallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3010,7 +3010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448308200}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-WestHallway->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4276,7 +4276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632421815}
   m_Layer: 0
-  m_Name: Door-InmostBigRoom
+  m_Name: Door-Hallway->InmostBigRoom
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4518,7 +4518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672893552}
   m_Layer: 0
-  m_Name: Door-NorthWing
+  m_Name: Door-CenterHallway->NorthWing
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5250,7 +5250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761633105}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-CrossRoads->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5412,7 +5412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808168487}
   m_Layer: 0
-  m_Name: Door-CrossRoads
+  m_Name: Door-NorthWing->CrossRoads
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5731,7 +5731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 865593417}
   m_Layer: 0
-  m_Name: Door-EnteringHall
+  m_Name: Door-CenterHallway->EnteringHall
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5791,7 +5791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873491784}
   m_Layer: 0
-  m_Name: Door-InmostRoom
+  m_Name: Door-CrossRoads->InmostRoom
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6358,7 +6358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955272721}
   m_Layer: 0
-  m_Name: Door-CenterHallway
+  m_Name: Door-NorthWing->CenterHallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6748,7 +6748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004841639}
   m_Layer: 0
-  m_Name: Door-CrossRoads
+  m_Name: Door-Ward->CrossRoads
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6778,7 +6778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016080212}
   m_Layer: 0
-  m_Name: Door-NorthEastRoom
+  m_Name: Door-CrossRoads->NorthEastRoom
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6903,7 +6903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071458612}
   m_Layer: 0
-  m_Name: Door-NorthWing
+  m_Name: Door-WestHallway->NorthWing
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7047,7 +7047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1102136046}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-EnteringHall->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8568,7 +8568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379249919}
   m_Layer: 0
-  m_Name: Door-FarWestRoom
+  m_Name: Door-Hallway->FarWestRoom
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9763,7 +9763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573855751}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-InmostBigRoom->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10367,7 +10367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655746630}
   m_Layer: 0
-  m_Name: Door-CrossRoads
+  m_Name: Door-NorthEastRoom->CrossRoads
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10397,7 +10397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665835374}
   m_Layer: 0
-  m_Name: Door-EnteringHall
+  m_Name: Door-Ward->EnteringHall
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -13157,7 +13157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994815886}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-FarWestRoom->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -13219,7 +13219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009820330}
   m_Layer: 0
-  m_Name: Door-NorthWing
+  m_Name: Door-CrossRoads->NorthWing
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -13249,7 +13249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012324084}
   m_Layer: 0
-  m_Name: Door-Hallway
+  m_Name: Door-EnteringHall->Hallway
   m_TagString: Door
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
