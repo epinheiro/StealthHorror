@@ -7121,6 +7121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5dd40648e4ec94787da57448667db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowGraphOnEditor: 0
   PlayerCurrentRoom: {fileID: 639742706}
   MonsterCurrentRoom: {fileID: 1454351381}
   Rooms:
@@ -7135,8 +7136,8 @@ MonoBehaviour:
   - {fileID: 680101173}
   - {fileID: 1417592691}
   - {fileID: 1454351381}
-  TestPointA: {fileID: 30171551}
-  TestPointB: {fileID: 225948248}
+  TestPointA: {fileID: 871040993}
+  TestPointB: {fileID: 1994815885}
 --- !u!1 &1146560774
 GameObject:
   m_ObjectHideFlags: 0

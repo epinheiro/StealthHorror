@@ -12,6 +12,9 @@ public class LayoutController : MonoBehaviour
     [SerializeField] public List<Room> Rooms;
     MapGraph map;
 
+    // public GameObject TestPointA; // For debug, if necessary
+    // public GameObject TestPointB; // For debug, if necessary
+
     void Awake()
     {
         MakeOnlyVisibleCurrentRoom();
@@ -20,6 +23,13 @@ public class LayoutController : MonoBehaviour
     void Start()
     {
         map = new MapGraph(Rooms);
+
+        // GetPath(TestPointA, TestPointB); // For debug, if necessary
+    }
+
+    private List<GameObject> GetPath(GameObject to, GameObject from)
+    {
+        return map.GetPath(to, from);
     }
 
     private void MakeOnlyVisibleCurrentRoom()
