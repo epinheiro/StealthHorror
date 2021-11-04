@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LayoutController : MonoBehaviour
 {
+    public bool ShowGraphOnEditor = false;
+
     public Room PlayerCurrentRoom;
     public Room MonsterCurrentRoom;
     [SerializeField] public List<Room> Rooms;
@@ -67,10 +69,13 @@ class LayoutControllerSceneEditor : Editor
     {
         LayoutController layout = target as LayoutController;
 
-        foreach(Room room in layout.Rooms)
+        if(layout.ShowGraphOnEditor)
         {
-            MapReference reference = room.transform.Find("MapReference").GetComponent<MapReference>();
-            MapReferenceSceneEditor.DrawEdges(reference);
+            foreach(Room room in layout.Rooms)
+            {
+                MapReference reference = room.transform.Find("MapReference").GetComponent<MapReference>();
+                MapReferenceSceneEditor.DrawEdges(reference);
+            }
         }
     }
 }
