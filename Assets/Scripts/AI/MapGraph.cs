@@ -6,7 +6,7 @@ public class MapGraph
 {
     bool debugPrint = false;
     float debugDelay = 5f;
-    bool debugPrintSearchGraph = false;
+    bool debugPrintSearchGraph = true;
 
     List<Room> rooms;
 
@@ -86,7 +86,7 @@ public class MapGraph
     public List<GameObject> GetPath(GameObject from, GameObject to)
     {
         List<GameObject> path;
-        GetPathDepthRecursive(from, to, out path);
+        GetPathRandomDepthRecursive(from, to, out path);
 
         if(debugPrintSearchGraph)
         {
@@ -108,7 +108,7 @@ public class MapGraph
         return path;
     }
 
-    private bool GetPathDepthRecursive(GameObject from, GameObject to, out List<GameObject> path, int depth = 0, HashSet<int> visited = null)
+    private bool GetPathRandomDepthRecursive(GameObject from, GameObject to, out List<GameObject> path, int depth = 0, HashSet<int> visited = null)
     {
         int fromInstanceID = from.GetInstanceID();
         int toInstanceID = to.GetInstanceID();
@@ -134,7 +134,7 @@ public class MapGraph
         }
 
         MapGraphNode graphNode = nodes[fromInstanceID];
-        foreach(GameObject neighbor in graphNode.Neighbors)
+        foreach(GameObject neighbor in graphNode.ShuffledNeighbors)
         {
             if(debugPrintSearchGraph)
             {
@@ -145,7 +145,7 @@ public class MapGraph
 
             if( from.gameObject.GetInstanceID() != neighbor.gameObject.GetInstanceID() )
             {
-                if(GetPathDepthRecursive(neighbor, to, out path, depth++, visited))
+                if(GetPathRandomDepthRecursive(neighbor, to, out path, depth++, visited))
                 {
                     path.Add(neighbor);
                     return true;
