@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         if (canMakeTransition && IsInteracting())
         {
+            SoundCommunicationLayer.instance.MakeSound(SoundType.OpenDoor, this.transform.position, currentRoom);
             map.GoToRoom(adjacentRoom);
             currentRoom = adjacentRoom;
         }

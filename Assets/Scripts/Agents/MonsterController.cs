@@ -14,6 +14,9 @@ public class MonsterController : MonoBehaviour
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
+    ///////////// Systemic /////////////
+    SoundListener listener;
+
     MonsterAI _ai;
     MonsterAI AI
     {
@@ -32,6 +35,7 @@ public class MonsterController : MonoBehaviour
     {
         GetInitialRoom();
         visualObject = this.transform.Find("Visual").gameObject;
+        GetComponent<SoundListener>().SoundEvent += ProcessSound;
     }
 
     protected void GetInitialRoom()
@@ -63,5 +67,15 @@ public class MonsterController : MonoBehaviour
     protected bool IsRunning()
     {
         return true; // TODO - AI behavior
+    }
+
+    protected void ProcessSound(SoundType soundType, Vector3 position, Room room)
+    {
+        switch(soundType)
+        {
+            case SoundType.OpenDoor:
+                AI.CreatePath(this.gameObject, position);
+                break;
+        }
     }
 }
