@@ -83,12 +83,13 @@ public class MapGraph
         return graphNode;
     }
 
-    public List<GameObject> GetPath(Vector3 fromPosition, Vector3 toPosition)
+    public List<GameObject> GetPath(GameObject agent, Vector3 fromPosition, Vector3 toPosition)
     {
         GameObject fromNode = GetClosestNode(fromPosition);
         GameObject toNode = GetClosestNode(toPosition);
 
         List<GameObject> path = GetPath(fromNode, toNode);
+        path.Insert(0, fromNode); // Guarantee the first node
 
         return path;
     }
@@ -104,13 +105,13 @@ public class MapGraph
             if (path != null)
             {
                 string pathMsg = $"SEARCH RESULT {from.name} | ";
-                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[path.Count-1].transform.position, Color.cyan, debugDelay+1);
-                for (int i = path.Count - 1; i > 0; i--)
+                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[0].transform.position, Color.cyan, debugDelay+1);
+                for (int i = 0; i < path.Count-1; i++)
                 {
                     pathMsg += $"{path[i].name} | ";
-                    Debug.DrawLine(path[i].transform.position, path[i - 1].transform.position, Color.cyan, debugDelay+1);
+                    Debug.DrawLine(path[i].transform.position, path[i + 1].transform.position, Color.cyan, debugDelay+1);
                 }
-                pathMsg += $"{path[0].name}";
+                pathMsg += $"{path[path.Count-1].name}";
                 Debug.LogAssertion(pathMsg);
             }
         }
@@ -161,7 +162,7 @@ public class MapGraph
         }
 
         MapGraphNode graphNode = nodes[fromInstanceID];
-        foreach(GameObject neighbor in graphNode.ShuffledNeighbors)
+        foreach(GameObject neighbor in graphNode.Neighbors)
         {
             if(debugPrintSearchGraph)
             {
@@ -174,7 +175,7 @@ public class MapGraph
             {
                 if(GetPathRandomDepthRecursive(neighbor, to, out path, depth++, visited))
                 {
-                    path.Add(neighbor);
+                    path.Insert(0, neighbor);
                     return true;
                 }
             }

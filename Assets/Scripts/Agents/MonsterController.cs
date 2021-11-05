@@ -36,10 +36,7 @@ public class MonsterController : MonoBehaviour
             ai = new MonsterAI(map.Graph);
 
         if(!ai.HavePath)
-        {
             ai.CreatePath(this.gameObject, GoToTest);
-            ai.GetNextNode(true); // FIXME - first node is always the destination!
-        }
 
         if( ai.IsCurrentNodeClose(this.transform.position) )
         {

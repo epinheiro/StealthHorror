@@ -19,9 +19,9 @@ public class MonsterAI
         this.graph = graph;
     }
 
-    public void CreatePath(GameObject currentPosition, GameObject to)
+    public void CreatePath(GameObject agent, GameObject to)
     {
-        currentPath = graph.GetPath(currentPosition.transform.position, to.transform.position);
+        currentPath = graph.GetPath(agent, agent.transform.position, to.transform.position);
         currentNode = currentPath[0];
     }
 
@@ -29,8 +29,8 @@ public class MonsterAI
     {
         if(currentPath.Count > 0)
         {
-            GameObject go = currentPath[currentPath.Count-1];
-            if(remove) currentPath.RemoveAt(currentPath.Count-1);
+            GameObject go = currentPath[0];
+            if(remove) currentPath.RemoveAt(0);
             currentNode = go;
             return go;
         }
