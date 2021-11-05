@@ -12,7 +12,7 @@ public class MonsterAI
     public bool HavePath => currentPath != null && currentPath.Count > 0;
     List<GameObject> currentPath;
 
-    float closeVerification = 0.3f;
+    float closeVerification = 0.1f;
 
     public MonsterAI(MapGraph graph)
     {
