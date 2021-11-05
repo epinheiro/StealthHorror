@@ -2,20 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterController : AgentController
+public class MonsterController : MonoBehaviour
 {
+    ///////////// Meta values /////////////
+    protected virtual float SimpleModifier => 1.75f;
+    protected virtual float RunningModifier => 2.25f;
+
+    ///////////// Control references /////////////
+    [SerializeField] protected LayoutController map;
+    protected Room currentRoom;
+    protected Room adjacentRoom;
+    protected bool canMakeTransition;
+
     MonsterAI ai;
 
     GameObject goingTo;
 
-    protected override void GetInitialRoom()
+    public GameObject GoToTest; // For debug, if necessary
+
+    void Awake()
+    {
+        GetInitialRoom();
+    }
+
+    protected void GetInitialRoom()
     {
         currentRoom = map.MonsterCurrentRoom;
     }
 
-    public GameObject GoToTest; // For debug, if necessary
-
-    protected override void Update()
+    void Update()
     {
         if(ai == null)
             ai = new MonsterAI(map.Graph);
@@ -43,5 +58,10 @@ public class MonsterController : AgentController
             //     if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
             // }
         }
+    }
+
+    protected bool IsRunning()
+    {
+        return true; // TODO - AI behavior
     }
 }
