@@ -6,7 +6,7 @@ public class MapGraph
 {
     bool debugPrint = false;
     float debugDelay = 5f;
-    bool debugPrintSearchGraph = true;
+    bool debugPrintSearchGraph = false;
 
     List<Room> rooms;
 
