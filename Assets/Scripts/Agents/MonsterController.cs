@@ -17,12 +17,14 @@ public class MonsterController : MonoBehaviour
     MonsterAI ai;
 
     GameObject goingTo;
+    GameObject visualObject;
 
     public GameObject GoToTest; // For debug, if necessary
 
     void Awake()
     {
         GetInitialRoom();
+        visualObject = this.transform.Find("Visual").gameObject;
     }
 
     protected void GetInitialRoom()
@@ -47,14 +49,11 @@ public class MonsterController : MonoBehaviour
             Vector3 movVector = (ai.CurrentNodePosition - this.transform.position).normalized;
             Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : SimpleModifier) *  Time.deltaTime;
 
-            // if(currentRoom.IsPointInsideConvexPolygon(nextPositon))
-            // {
             this.transform.position = nextPositon;
-                // adjacentRoom = currentRoom.IsPointInRoomTransition(nextPositon);
-                // canMakeTransition = adjacentRoom != null;
-            //     if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
-            // }
         }
+
+        bool isVisibile = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
+        visualObject.SetActive( isVisibile );
     }
 
     protected bool IsRunning()
