@@ -28,8 +28,6 @@ public class MonsterController : MonoBehaviour
     GameObject goingTo;
     GameObject visualObject;
 
-    public GameObject GoToTest; // For debug, if necessary
-
     void Awake()
     {
         GetInitialRoom();
@@ -44,7 +42,7 @@ public class MonsterController : MonoBehaviour
     void Update()
     {
         if(!AI.HavePath)
-            AI.CreatePath(this.gameObject, GoToTest);
+            AI.CreatePathToRandomLocation(this.gameObject);
 
         if( AI.IsCurrentNodeClose(this.transform.position) )
         {
