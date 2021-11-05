@@ -19,9 +19,19 @@ public class MonsterAI
         this.graph = graph;
     }
 
+    public void CreatePathToRandomLocation(GameObject agent)
+    {
+        SetPath(graph.GetRandomPath(agent));
+    }
+
     public void CreatePath(GameObject agent, GameObject to)
     {
-        currentPath = graph.GetPath(agent, agent.transform.position, to.transform.position);
+        SetPath(graph.GetPath(agent, agent.transform.position, to.transform.position));
+    }
+
+    void SetPath(List<GameObject> path)
+    {
+        currentPath = path;
         currentNode = currentPath[0];
     }
 
