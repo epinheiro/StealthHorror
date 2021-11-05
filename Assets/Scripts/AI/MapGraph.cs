@@ -83,7 +83,17 @@ public class MapGraph
         return graphNode;
     }
 
-    public List<GameObject> GetPath(GameObject from, GameObject to)
+    public List<GameObject> GetPath(Vector3 fromPosition, Vector3 toPosition)
+    {
+        GameObject fromNode = GetClosestNode(fromPosition);
+        GameObject toNode = GetClosestNode(toPosition);
+
+        List<GameObject> path = GetPath(fromNode, toNode);
+
+        return path;
+    }
+
+    private List<GameObject> GetPath(GameObject from, GameObject to)
     {
         List<GameObject> path;
         GetPathRandomDepthRecursive(from, to, out path);
@@ -106,6 +116,23 @@ public class MapGraph
         }
 
         return path;
+    }
+
+    private GameObject GetClosestNode(Vector3 checkPosition)
+    {
+        float minimumDistance = float.MaxValue;
+        GameObject go = null;
+        foreach(KeyValuePair<int, MapGraphNode> pair in nodes)
+        {
+            GameObject vertex = pair.Value.Vertex;
+            float checkDistance = Vector2.Distance(vertex.transform.position, checkPosition);
+            if(minimumDistance > checkDistance)
+            {
+                go = vertex;
+                minimumDistance = checkDistance;
+            }
+        }
+        return go;
     }
 
     private bool GetPathRandomDepthRecursive(GameObject from, GameObject to, out List<GameObject> path, int depth = 0, HashSet<int> visited = null)
