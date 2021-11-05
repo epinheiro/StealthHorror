@@ -24,6 +24,11 @@ public class MonsterAI
         SetPath(graph.GetRandomPath(agent));
     }
 
+    public void CreatePath(GameObject agent, Vector3 to)
+    {
+        SetPath(graph.GetPath(agent, to));
+    }
+
     public void CreatePath(GameObject agent, GameObject to)
     {
         SetPath(graph.GetPath(agent, to.transform.position));
