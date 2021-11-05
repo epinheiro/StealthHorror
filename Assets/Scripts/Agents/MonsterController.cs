@@ -14,7 +14,16 @@ public class MonsterController : MonoBehaviour
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
-    MonsterAI ai;
+    MonsterAI _ai;
+    MonsterAI AI
+    {
+        get 
+        { 
+            if(_ai == null)
+                _ai = new MonsterAI(map.Graph);
+            return _ai;
+        }
+    }
 
     GameObject goingTo;
     GameObject visualObject;
@@ -34,19 +43,16 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        if(ai == null)
-            ai = new MonsterAI(map.Graph);
+        if(!AI.HavePath)
+            AI.CreatePath(this.gameObject, GoToTest);
 
-        if(!ai.HavePath)
-            ai.CreatePath(this.gameObject, GoToTest);
-
-        if( ai.IsCurrentNodeClose(this.transform.position) )
+        if( AI.IsCurrentNodeClose(this.transform.position) )
         {
-            ai.GetNextNode(true);
+            AI.GetNextNode(true);
         }
         else
         {
-            Vector3 movVector = (ai.CurrentNodePosition - this.transform.position).normalized;
+            Vector3 movVector = (AI.CurrentNodePosition - this.transform.position).normalized;
             Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : SimpleModifier) *  Time.deltaTime;
 
             this.transform.position = nextPositon;
