@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MapGraph
@@ -92,6 +92,16 @@ public class MapGraph
         path.Insert(0, fromNode); // Guarantee the first node
 
         return path;
+    }
+
+    public List<GameObject> GetRandomPath(GameObject agent)
+    {
+        return GetPath(agent, agent.transform.position, GetRandomNode().Vertex.transform.position);
+    }
+
+    MapGraphNode GetRandomNode()
+    {
+        return nodes.ElementAt(UnityEngine.Random.Range(0, nodes.Keys.Count)).Value;
     }
 
     private List<GameObject> GetPath(GameObject from, GameObject to)
