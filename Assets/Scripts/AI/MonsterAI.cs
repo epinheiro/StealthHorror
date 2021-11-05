@@ -26,7 +26,7 @@ public class MonsterAI
 
     public void CreatePath(GameObject agent, GameObject to)
     {
-        SetPath(graph.GetPath(agent, agent.transform.position, to.transform.position));
+        SetPath(graph.GetPath(agent, to.transform.position));
     }
 
     void SetPath(List<GameObject> path)

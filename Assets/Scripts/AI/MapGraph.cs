@@ -83,9 +83,9 @@ public class MapGraph
         return graphNode;
     }
 
-    public List<GameObject> GetPath(GameObject agent, Vector3 fromPosition, Vector3 toPosition)
+    public List<GameObject> GetPath(GameObject agent, Vector3 toPosition)
     {
-        GameObject fromNode = GetClosestNode(fromPosition);
+        GameObject fromNode = GetClosestNode(agent.transform.position);
         GameObject toNode = GetClosestNode(toPosition);
 
         List<GameObject> path = GetPath(fromNode, toNode);
@@ -96,7 +96,7 @@ public class MapGraph
 
     public List<GameObject> GetRandomPath(GameObject agent)
     {
-        return GetPath(agent, agent.transform.position, GetRandomNode().Vertex.transform.position);
+        return GetPath(agent, GetRandomNode().Vertex.transform.position);
     }
 
     MapGraphNode GetRandomNode()
