@@ -83,20 +83,30 @@ public class MapGraph
         return graphNode;
     }
 
-    public List<GameObject> GetPath(GameObject agent, Vector3 toPosition)
+    private List<GameObject> GetPath(GameObject agent, Vector3 toPosition, bool minimumCost)
     {
         GameObject fromNode = GetClosestNode(agent.transform.position);
         GameObject toNode = GetClosestNode(toPosition);
 
-        List<GameObject> path = GetPath(fromNode, toNode);
+        List<GameObject> path = GetPath(fromNode, toNode, minimumCost);
         path.Insert(0, fromNode); // Guarantee the first node
 
         return path;
     }
 
+    public List<GameObject> GetMinimumPath(GameObject agent, Vector3 toPosition)
+    {
+        return GetPath(agent, toPosition, true);
+    }
+
     public List<GameObject> GetRandomPath(GameObject agent)
     {
-        return GetPath(agent, GetRandomNode().Vertex.transform.position);
+        return GetPath(agent, GetRandomNode().Vertex.transform.position, false);
+    }
+
+    public List<GameObject> GetRandomPath(GameObject agent, Vector3 toPosition)
+    {
+        return GetPath(agent, toPosition, false);
     }
 
     MapGraphNode GetRandomNode()
@@ -104,22 +114,32 @@ public class MapGraph
         return nodes.ElementAt(UnityEngine.Random.Range(0, nodes.Keys.Count)).Value;
     }
 
-    private List<GameObject> GetPath(GameObject from, GameObject to)
+    private List<GameObject> GetPath(GameObject from, GameObject to, bool minimumCost)
     {
         List<GameObject> path;
-        GetPathRandomDepthRecursive(from, to, out path);
+
+        if( minimumCost )
+        {
+            path = GetPathAStar(from, to);
+        }
+        else
+        {
+            GetPathRandomDepthRecursive(from, to, out path);
+        }
 
         if(debugPrintSearchGraph)
         {
+            Color pathColor = minimumCost ? Color.red : Color.cyan;
+
             Debug.DrawLine(from.transform.position, to.transform.position, Color.blue, debugDelay+1);
             if (path != null)
             {
                 string pathMsg = $"SEARCH RESULT {from.name} | ";
-                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[0].transform.position, Color.cyan, debugDelay+1);
+                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[0].transform.position, pathColor, debugDelay+1);
                 for (int i = 0; i < path.Count-1; i++)
                 {
                     pathMsg += $"{path[i].name} | ";
-                    Debug.DrawLine(path[i].transform.position, path[i + 1].transform.position, Color.cyan, debugDelay+1);
+                    Debug.DrawLine(path[i].transform.position, path[i + 1].transform.position, pathColor, debugDelay+1);
                 }
                 pathMsg += $"{path[path.Count-1].name}";
                 Debug.LogAssertion(pathMsg);
