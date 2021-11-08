@@ -89,4 +89,14 @@ public class MonsterAI
         float distance = Vector2.Distance(position, currentNode.transform.position);
         return distance <= closeVerification;
     }
+
+    private bool IsCurrentNodeTheLast()
+    {
+        return currentNode != null && currentPath.Count == 1;
+    }
+
+    private bool IsNodeDoor(GameObject go)
+    {
+        return go.CompareTag("Door");
+    }
 }
