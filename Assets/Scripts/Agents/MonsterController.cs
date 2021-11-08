@@ -62,13 +62,18 @@ public class MonsterController : MonoBehaviour
 
         if( GameManager.Instance.DebugSettings.AlwaysShowSprites )
         {
-            visualObject.SetActive( true );
+            ChangeVisibility(true);
         }
         else
         {
             bool isVisibile = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
-            visualObject.SetActive( isVisibile );
+            ChangeVisibility(isVisibile);
         }
+    }
+
+    private void ChangeVisibility(bool isVisibile)
+    {
+        visualObject.SetActive(isVisibile);
     }
 
     protected bool IsRunning()
