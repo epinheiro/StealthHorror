@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SoundCommunicationLayer : MonoBehaviour
 {
-    [SerializeField] SoundListener[] listeners;
+    List<SoundListener> listeners;
 
     public static SoundCommunicationLayer instance;
 
     void Awake()
     {
         instance = this;
+        listeners = new List<SoundListener>();
+    }
+
+    public void SignListener(SoundListener listener)
+    {
+        listeners.Add(listener);
     }
 
     public void MakeSound(SoundType soundType, Vector3 position, Room room)
