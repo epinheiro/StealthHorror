@@ -194,4 +194,70 @@ public class MapGraph
         path = null;
         return false;
     }
+
+    // Adapted from https://www.raywenderlich.com/3016-introduction-to-a-pathfinding
+    // Adapted from http://theory.stanford.edu/~amitp/GameProgramming/
+    private List<GameObject> GetPathAStar(GameObject from, GameObject to)
+    {
+        SortedDictionary<int, AStarInfo> openDict = new SortedDictionary<int, AStarInfo>();
+        SortedDictionary<int, AStarInfo> closeDict = new SortedDictionary<int, AStarInfo>();
+
+        AStarInfo currentNode = new AStarInfo(null, from, to, 0);
+        closeDict.Add(currentNode.ID, currentNode);
+
+        while( currentNode.node.GetInstanceID() != to.GetInstanceID() )
+        {
+            // Add neighbors to open dict
+            MapGraphNode graphNode = nodes[closeDict[currentNode.ID].node.GetInstanceID()];
+            foreach(GameObject neighbor in graphNode.Neighbors)
+            {
+                // If neighbor is in the closed list: Ignore it.
+                if( !closeDict.ContainsKey(neighbor.GetInstanceID()) )
+                {
+                    AStarInfo neighborNode = new AStarInfo(graphNode.Vertex, neighbor, to, currentNode.Cost);
+                    // If neighbor is not in the open list: Add it and compute its score.
+                    if( !openDict.ContainsKey(neighbor.GetInstanceID()) )
+                    {
+                        openDict.Add(neighborNode.ID, neighborNode);
+                    }
+                    else
+                    {
+                        // If neighbor is already in the open list: 
+                        //      Check if the COST is lower when we use the current generated path to get there.
+                        //      If it is, update its score and update its parent as well.
+                        AStarInfo comparingNode = openDict[neighbor.GetInstanceID()];
+                        if( neighborNode.Cost < comparingNode.Cost )
+                        {
+                            openDict.Remove(comparingNode.ID);
+                            openDict.Add(neighborNode.ID, neighborNode);
+                        }
+                    }
+                }
+            }
+
+            // Get lowest score from open dict
+            AStarInfo lowestScoreNode = openDict.OrderBy(key => key.Value.Cost).First().Value;
+            // Remove S from the open list and add S to the closed list.
+            openDict.Remove(lowestScoreNode.ID);
+            closeDict.Add(lowestScoreNode.ID, lowestScoreNode);
+
+            currentNode = lowestScoreNode;
+        }
+
+        // Going back to fetch the path
+        List<GameObject> path = new List<GameObject>();
+
+        AStarInfo destination = closeDict.OrderBy(pair => pair.Value.HeuristicDistanceToDestiny).First().Value;
+        AStarInfo goingBackNode = closeDict[destination.previous.GetInstanceID()];
+
+        path.Insert(0, goingBackNode.node);
+
+        while(goingBackNode.previous != null)
+        {
+            path.Insert(0, goingBackNode.node);
+            goingBackNode = closeDict[goingBackNode.previous.GetInstanceID()];
+        }
+
+        return path;
+    }
 }
