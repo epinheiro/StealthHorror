@@ -60,8 +60,15 @@ public class MonsterController : MonoBehaviour
             this.transform.position = nextPositon;
         }
 
-        bool isVisibile = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
-        visualObject.SetActive( isVisibile );
+        if( GameManager.Instance.DebugSettings.AlwaysShowSprites )
+        {
+            visualObject.SetActive( true );
+        }
+        else
+        {
+            bool isVisibile = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
+            visualObject.SetActive( isVisibile );
+        }
     }
 
     protected bool IsRunning()

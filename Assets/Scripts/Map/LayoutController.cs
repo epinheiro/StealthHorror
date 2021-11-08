@@ -26,10 +26,17 @@ public class LayoutController : MonoBehaviour
     {
         foreach (Room room in Rooms)
         {
-            if (room != PlayerCurrentRoom)
-                ChangeChildAlpha(room.gameObject, 0);
-            else
+            if( GameManager.Instance.DebugSettings.AlwaysShowSprites )
+            {
                 ChangeChildAlpha(room.gameObject, 1);
+            }
+            else
+            {
+                if (room != PlayerCurrentRoom)
+                    ChangeChildAlpha(room.gameObject, 0);
+                else
+                    ChangeChildAlpha(room.gameObject, 1);
+            }
         }
     }
 

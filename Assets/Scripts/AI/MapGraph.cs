@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MapGraph
 {
-    bool debugPrint = false;
     float debugDelay = 5f;
-    bool debugPrintSearchGraph = false;
 
     List<Room> rooms;
 
@@ -28,7 +26,7 @@ public class MapGraph
 
             /// Inner paths
             List<MapGraphEdge> edges = mapRef.GetEdges();
-            if(debugPrint) Debug.LogError($"MapGraph Room {room.name} - edges [{edges.Count}] - adjacents rooms [{room.nodeToAdjacentDict.Count}]");
+            if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.LogError($"MapGraph Room {room.name} - edges [{edges.Count}] - adjacents rooms [{room.nodeToAdjacentDict.Count}]");
             foreach(MapGraphEdge edge in edges)
             {
                 ProcessNode(edge.PointA, edge.PointB);
@@ -40,7 +38,7 @@ public class MapGraph
                 GameObject point1 = room.GetTransitionNode(pair.Key);
                 GameObject point2 = pair.Key.GetTransitionNode(room);
                 ProcessNode(point1, point2);
-                if(debugPrint)
+                if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph)
                 {
                     Debug.DrawLine(point1.transform.position, point2.transform.position, Color.magenta, debugDelay);
                     GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = pair.Value.transform.position;
@@ -54,7 +52,7 @@ public class MapGraph
         int point1ID = point1.gameObject.GetInstanceID();
         if ( !nodes.ContainsKey(point1ID) )
         {
-            if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEW [{point1.transform.parent.parent.name}] {point1.gameObject.name}");
+            if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.Log($"MapGraph ProcessNode {point1ID} - NEW [{point1.transform.parent.parent.name}] {point1.gameObject.name}");
             MapGraphNode newNode = new MapGraphNode(point1);
             nodes.Add(point1ID, newNode);
 
@@ -71,7 +69,7 @@ public class MapGraph
     void InsertNeighbors(MapGraphNode node, GameObject point1, GameObject point2)
     {
         int point1ID = point1.gameObject.GetInstanceID();
-        if(debugPrint) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
+        if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
         node.InsertNeighbors(point2);
         ProcessNode(point2, point1);
     }
@@ -127,7 +125,7 @@ public class MapGraph
             GetPathRandomDepthRecursive(from, to, out path);
         }
 
-        if(debugPrintSearchGraph)
+        if(GameManager.Instance.DebugSettings.ShowPathFindingGraphs)
         {
             Color pathColor = minimumCost ? Color.red : Color.cyan;
 
@@ -173,7 +171,7 @@ public class MapGraph
 
         if(fromInstanceID == toInstanceID)
         {
-            if(debugPrintSearchGraph) Debug.LogError($"SEARCH - FOUND in depth {depth}");
+            if(GameManager.Instance.DebugSettings.ShowPathFindingGraphs) Debug.LogError($"SEARCH - FOUND in depth {depth}");
             path = new List<GameObject>();
             path.Add(to);
             return true;
@@ -186,7 +184,7 @@ public class MapGraph
             visited.Add(fromInstanceID);
         else
         {
-            if(debugPrintSearchGraph) Debug.LogAssertion($"SEARCH - already visited {from.name}");
+            if(GameManager.Instance.DebugSettings.ShowPathFindingGraphs) Debug.LogAssertion($"SEARCH - already visited {from.name}");
             path = null;
             return false;
         }
@@ -194,7 +192,7 @@ public class MapGraph
         MapGraphNode graphNode = nodes[fromInstanceID];
         foreach(GameObject neighbor in graphNode.ShuffledNeighbors)
         {
-            if(debugPrintSearchGraph)
+            if(GameManager.Instance.DebugSettings.ShowPathFindingGraphs)
             {
                 Debug.Log($"SEARCH - go {from.name} [{from.gameObject.GetInstanceID()}] to {neighbor.name} [{neighbor.gameObject.GetInstanceID()}]");
                 Debug.DrawLine(from.transform.position, neighbor.transform.position, Color.black, debugDelay);
