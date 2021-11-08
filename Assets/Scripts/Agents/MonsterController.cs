@@ -23,7 +23,7 @@ public class MonsterController : MonoBehaviour
         get 
         { 
             if(_ai == null)
-                _ai = new MonsterAI(map.Graph);
+                _ai = new MonsterAI(this, map.Graph);
             return _ai;
         }
     }
@@ -45,20 +45,10 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        if(!AI.HavePath)
-            AI.CreatePathToRandomLocation(this.gameObject);
+        Vector3 movVector = AI.Update(this);
+        Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : SimpleModifier) *  Time.deltaTime;
 
-        if( AI.IsCurrentNodeClose(this.transform.position) )
-        {
-            AI.GetNextNode(true);
-        }
-        else
-        {
-            Vector3 movVector = (AI.CurrentNodePosition - this.transform.position).normalized;
-            Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : SimpleModifier) *  Time.deltaTime;
-
-            this.transform.position = nextPositon;
-        }
+        this.transform.position = nextPositon;
 
         if( GameManager.Instance.DebugSettings.AlwaysShowSprites )
         {
@@ -83,11 +73,6 @@ public class MonsterController : MonoBehaviour
 
     protected void ProcessSound(SoundType soundType, Vector3 position, Room room)
     {
-        switch(soundType)
-        {
-            case SoundType.OpenDoor:
-                AI.CreatePath(this.gameObject, position);
-                break;
-        }
+        AI.ProcessSound(soundType, position, room);
     }
 }

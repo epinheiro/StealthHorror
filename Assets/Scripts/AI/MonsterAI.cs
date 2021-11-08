@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterAI
 {
+    MonsterController controller;
     MapGraph graph;
 
     GameObject currentNode;
@@ -14,33 +15,61 @@ public class MonsterAI
 
     float closeVerification = 0.1f;
 
-    public MonsterAI(MapGraph graph)
+    public MonsterAI(MonsterController controller, MapGraph graph)
     {
+        this.controller = controller;
         this.graph = graph;
     }
 
-    public void CreatePathToRandomLocation(GameObject agent)
+    public Vector3 Update(MonsterController controller)
+    {
+        if( !HavePath )
+            CreatePathToRandomLocation(controller.gameObject);
+
+        if( IsCurrentNodeClose(controller.transform.position) )
+        {
+            GetNextNode(true);
+        }
+        else
+        {
+            return (CurrentNodePosition - controller.transform.position).normalized;
+        }
+
+        return Vector3.zero;
+    }
+
+    public void ProcessSound(SoundType soundType, Vector3 position, Room room)
+    {
+        switch(soundType)
+        {
+            case SoundType.OpenDoor:
+                CreatePath(controller.gameObject, position);
+                break;
+        }
+    }
+
+    private void CreatePathToRandomLocation(GameObject agent)
     {
         SetPath(graph.GetRandomPath(agent));
     }
 
-    public void CreatePath(GameObject agent, Vector3 to)
+    private void CreatePath(GameObject agent, Vector3 to)
     {
         SetPath(graph.GetMinimumPath(agent, to));
     }
 
-    public void CreatePath(GameObject agent, GameObject to)
+    private void CreatePath(GameObject agent, GameObject to)
     {
         SetPath(graph.GetMinimumPath(agent, to.transform.position));
     }
 
-    void SetPath(List<GameObject> path)
+    private void SetPath(List<GameObject> path)
     {
         currentPath = path;
         currentNode = currentPath[0];
     }
 
-    public GameObject GetNextNode(bool remove = false)
+    private GameObject GetNextNode(bool remove = false)
     {
         if(currentPath.Count > 0)
         {
@@ -52,7 +81,7 @@ public class MonsterAI
         return null;
     }
 
-    public bool IsCurrentNodeClose(Vector3 position)
+    private bool IsCurrentNodeClose(Vector3 position)
     {
         float distance = Vector2.Distance(position, currentNode.transform.position);
         return distance <= closeVerification;
