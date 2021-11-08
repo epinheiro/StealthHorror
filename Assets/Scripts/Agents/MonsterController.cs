@@ -45,8 +45,8 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        Vector3 movVector = AI.Update(this);
-        Vector3 nextPositon = this.transform.position + movVector * SimpleModifier * (IsRunning() ? RunningModifier : SimpleModifier) *  Time.deltaTime;
+        MonsterAIData data = AI.Update(this);
+        Vector3 nextPositon = this.transform.position + data.movement * SimpleModifier * (data.isRunning ? RunningModifier : SimpleModifier) *  Time.deltaTime;
 
         this.transform.position = nextPositon;
 
@@ -64,11 +64,6 @@ public class MonsterController : MonoBehaviour
     private void ChangeVisibility(bool isVisibile)
     {
         visualObject.SetActive(isVisibile);
-    }
-
-    protected bool IsRunning()
-    {
-        return true; // TODO - AI behavior
     }
 
     protected void ProcessSound(SoundType soundType, Vector3 position, Room room)

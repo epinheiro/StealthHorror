@@ -21,21 +21,24 @@ public class MonsterAI
         this.graph = graph;
     }
 
-    public Vector3 Update(MonsterController controller)
+    public MonsterAIData Update(MonsterController controller)
     {
+        MonsterAIData data = new MonsterAIData();
+
         if( !HavePath )
             CreatePathToRandomLocation(controller.gameObject);
 
         if( IsCurrentNodeClose(controller.transform.position) )
         {
             GetNextNode(true);
+            data.movement = Vector3.zero;
         }
         else
         {
-            return (CurrentNodePosition - controller.transform.position).normalized;
+            data.movement = (CurrentNodePosition - controller.transform.position).normalized;
         }
 
-        return Vector3.zero;
+        return data;
     }
 
     public void ProcessSound(SoundType soundType, Vector3 position, Room room)
