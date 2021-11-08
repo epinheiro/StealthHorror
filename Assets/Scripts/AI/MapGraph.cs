@@ -192,7 +192,7 @@ public class MapGraph
         }
 
         MapGraphNode graphNode = nodes[fromInstanceID];
-        foreach(GameObject neighbor in graphNode.Neighbors)
+        foreach(GameObject neighbor in graphNode.ShuffledNeighbors)
         {
             if(debugPrintSearchGraph)
             {
