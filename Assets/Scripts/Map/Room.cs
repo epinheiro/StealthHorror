@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Room : MonoBehaviour
 {
@@ -105,6 +106,11 @@ public class Room : MonoBehaviour
                 return room;
         }
         return null;
+    }
+
+    public Room GetTransitionToRoom(GameObject node)
+    {
+        return this.nodeToAdjacentDict.First(x => x.Value.gameObject.GetInstanceID() == node.GetInstanceID()).Key;
     }
 
     public GameObject GetTransitionNode(Room nodeToTransition)
