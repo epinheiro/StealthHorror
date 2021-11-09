@@ -13,7 +13,6 @@ public class MonsterController : MonoBehaviour
     [SerializeField] protected LayoutController map;
     public Room CurrentRoom {get; protected set;}
     public Action<Room> ChangingRoom;
-    protected Room adjacentRoom;
     protected bool canMakeTransition;
 
     ///////////// Systemic /////////////
@@ -52,15 +51,19 @@ public class MonsterController : MonoBehaviour
 
         this.transform.position = nextPositon;
 
-        if( GameManager.Instance.DebugSettings.AlwaysShowSprites )
+        Room goingToRoom = data.room;
+        if(goingToRoom != null && goingToRoom != CurrentRoom)
         {
+            CurrentRoom = goingToRoom;
+            ChangingRoom?.Invoke(CurrentRoom);
+        }
+
+        bool sameRoom = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
+
+        if (GameManager.Instance.DebugSettings.AlwaysShowSprites)
             ChangeVisibility(true);
-        }
         else
-        {
-            bool isVisibile = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
-            ChangeVisibility(isVisibile);
-        }
+            ChangeVisibility(sameRoom);
     }
 
     private void ChangeVisibility(bool isVisibile)

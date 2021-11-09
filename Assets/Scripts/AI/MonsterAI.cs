@@ -30,8 +30,10 @@ public class MonsterAI
 
         if( IsCurrentNodeClose(controller.transform.position) )
         {
-            GetNextNode(true);
+            GameObject nextNodeObject = GetNextNode(true);
+            MapGraphNode nextNode = graph.GetNodeInfo(nextNodeObject);
             data.movement = Vector3.zero;
+            data.room = nextNode.Room;
         }
         else
         {
