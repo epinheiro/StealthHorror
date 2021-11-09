@@ -32,11 +32,15 @@ public class MonsterController : MonoBehaviour
     GameObject goingTo;
     GameObject visualObject;
 
+    PlayerController playerController;
+
+
     void Awake()
     {
         GetInitialRoom();
         visualObject = this.transform.Find("Visual").gameObject;
         GetComponent<SoundListener>().SoundEvent += ProcessSound;
+        playerController = GameManager.Instance.Player;
     }
 
     protected void GetInitialRoom()
@@ -58,7 +62,7 @@ public class MonsterController : MonoBehaviour
             ChangingRoom?.Invoke(CurrentRoom);
         }
 
-        bool sameRoom = map.PlayerCurrentRoom.IsPointInsideConvexPolygon(this.transform.position);
+        bool sameRoom = this.CurrentRoom == playerController.CurrentRoom;
 
         if (GameManager.Instance.DebugSettings.AlwaysShowSprites)
             ChangeVisibility(true);
