@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class MonsterController : MonoBehaviour
 
     ///////////// Control references /////////////
     [SerializeField] protected LayoutController map;
-    protected Room currentRoom;
+    public Room CurrentRoom {get; protected set;}
+    public Action<Room> ChangingRoom;
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
@@ -40,7 +42,7 @@ public class MonsterController : MonoBehaviour
 
     protected void GetInitialRoom()
     {
-        currentRoom = map.MonsterCurrentRoom;
+        CurrentRoom = map.MonsterCurrentRoom;
     }
 
     void Update()

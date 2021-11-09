@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class PlayerController : MonoBehaviour
 
     ///////////// Control references /////////////
     [SerializeField] protected LayoutController map;
-    protected Room currentRoom;
+    public Room CurrentRoom {get; protected set;}
+    public Action<Room> ChangingRoom;
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
@@ -21,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     protected void GetInitialRoom()
     {
-        currentRoom = map.PlayerCurrentRoom;
+        CurrentRoom = map.PlayerCurrentRoom;
     }
 
     protected virtual void Update()
@@ -30,19 +32,19 @@ public class PlayerController : MonoBehaviour
 
         Vector3 nextPositon = this.transform.position + movVector * (IsRunning() ? RunningModifier : SimpleModifier) * Time.deltaTime;
 
-        if(currentRoom.IsPointInsideConvexPolygon(nextPositon))
+        if(CurrentRoom.IsPointInsideConvexPolygon(nextPositon))
         {
             this.transform.position = nextPositon;
-            adjacentRoom = currentRoom.IsPointInRoomTransition(nextPositon);
+            adjacentRoom = CurrentRoom.IsPointInRoomTransition(nextPositon);
             canMakeTransition = adjacentRoom != null;
             // if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
         }
 
         if (canMakeTransition && IsInteracting())
         {
-            SoundCommunicationLayer.instance.MakeSound(SoundType.OpenDoor, this.transform.position, currentRoom);
-            map.GoToRoom(adjacentRoom);
-            currentRoom = adjacentRoom;
+            SoundCommunicationLayer.instance.MakeSound(SoundType.OpenDoor, this.transform.position, CurrentRoom);
+            ChangingRoom?.Invoke(adjacentRoom);
+            CurrentRoom = adjacentRoom;
         }
     }
 

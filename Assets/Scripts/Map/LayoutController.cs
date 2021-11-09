@@ -15,6 +15,8 @@ public class LayoutController : MonoBehaviour
     void Awake()
     {
         MakeOnlyVisibleCurrentRoom();
+        GameManager.Instance.Player.ChangingRoom += PlayerChangingRoom;
+        GameManager.Instance.Monster.ChangingRoom += MonsterChangingRoom;
     }
 
     void Start()
@@ -62,10 +64,15 @@ public class LayoutController : MonoBehaviour
         
     }
 
-    public void GoToRoom(Room room)
+    public void PlayerChangingRoom(Room room)
     {
         PlayerCurrentRoom = room;
         MakeOnlyVisibleCurrentRoom();
+    }
+
+    public void MonsterChangingRoom(Room room)
+    {
+        MonsterCurrentRoom = room;
     }
 }
 
