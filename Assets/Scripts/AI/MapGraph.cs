@@ -17,19 +17,17 @@ public class MapGraph
     {
         this.rooms = rooms;
 
-        List<MapReference> references = new List<MapReference>();// Is it needed?
         nodes = new Dictionary<int, MapGraphNode>();
         foreach(Room room in rooms)
         {
             MapReference mapRef = room.MapReference;
-            references.Add(mapRef); // Is it needed?
 
             /// Inner paths
             List<MapGraphEdge> edges = mapRef.GetEdges();
             if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.LogError($"MapGraph Room {room.name} - edges [{edges.Count}] - adjacents rooms [{room.nodeToAdjacentDict.Count}]");
             foreach(MapGraphEdge edge in edges)
             {
-                ProcessNode(edge.PointA, edge.PointB);
+                ProcessNode(edge.PointA, room, edge.PointB, room);
             }
 
             /// Inter paths
@@ -37,7 +35,7 @@ public class MapGraph
             {
                 GameObject point1 = room.GetTransitionNode(pair.Key);
                 GameObject point2 = pair.Key.GetTransitionNode(room);
-                ProcessNode(point1, point2);
+                ProcessNode(point1, room, point2, room.GetTransitionToRoom(point1));
                 if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph)
                 {
                     Debug.DrawLine(point1.transform.position, point2.transform.position, Color.magenta, debugDelay);
@@ -47,31 +45,31 @@ public class MapGraph
         }
     }
 
-    private void ProcessNode(GameObject point1, GameObject point2)
+    private void ProcessNode(GameObject point1, Room room1, GameObject point2, Room room2)
     {
         int point1ID = point1.gameObject.GetInstanceID();
         if ( !nodes.ContainsKey(point1ID) )
         {
             if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.Log($"MapGraph ProcessNode {point1ID} - NEW [{point1.transform.parent.parent.name}] {point1.gameObject.name}");
-            MapGraphNode newNode = new MapGraphNode(point1);
+            MapGraphNode newNode = new MapGraphNode(point1, room1);
             nodes.Add(point1ID, newNode);
 
-            InsertNeighbors(newNode, point1, point2);
+            InsertNeighbors(newNode, point1, room1, point2, room2);
         }
         else
         {
             MapGraphNode node = nodes[point1ID];
             if ( !node.ContainsAdjacent(point2) )
-                InsertNeighbors(node, point1, point2);
+                InsertNeighbors(node, point1, room1, point2, room2);
         }
     }
 
-    void InsertNeighbors(MapGraphNode node, GameObject point1, GameObject point2)
+    void InsertNeighbors(MapGraphNode node, GameObject point1, Room room1, GameObject point2, Room room2)
     {
         int point1ID = point1.gameObject.GetInstanceID();
         if(GameManager.Instance.DebugSettings.ShowContructingRoomGraph) Debug.Log($"MapGraph ProcessNode {point1ID} - NEIGHBOR [{point1.transform.parent.parent.name}] {point1.gameObject.name} -> {point2.gameObject.GetInstanceID()} [{point2.transform.parent.parent.name}] {point2.gameObject.name}");
         node.InsertNeighbors(point2);
-        ProcessNode(point2, point1);
+        ProcessNode(point2, room2, point1, room1);
     }
 
     public MapGraphNode GetNodeInfo(GameObject goNode)

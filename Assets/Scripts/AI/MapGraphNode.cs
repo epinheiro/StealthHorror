@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class MapGraphNode
 {
+    public Room Room {get; protected set;}
     public GameObject Vertex {get; protected set;}
     public NodeType type {get; protected set;}
     public List<GameObject> Neighbors;
     public List<GameObject> ShuffledNeighbors => Shuffle(Neighbors);
 
-    private void ConstructorBase(GameObject vertex)
+    private void ConstructorBase(GameObject vertex, Room room)
     {
+        this.Room = room;
         this.Vertex = vertex;
         type = (NodeType)Enum.Parse(typeof(NodeType), vertex.tag, true);
         Neighbors = new List<GameObject>();
     }
 
-    public MapGraphNode(GameObject vertex)
+    public MapGraphNode(GameObject vertex, Room room)
     {
-        ConstructorBase(vertex);
-    }
-
-    public MapGraphNode(GameObject vertex, GameObject adjacent)
-    {
-        ConstructorBase(vertex);
-        Neighbors.Add(adjacent);
+        ConstructorBase(vertex, room);
     }
 
     public bool ContainsAdjacent(GameObject adjacent)
