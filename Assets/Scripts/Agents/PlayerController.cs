@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
+    public PlayerState State {get; protected set;} = PlayerState.Visible;
+
     void Awake()
     {
         GetInitialRoom();

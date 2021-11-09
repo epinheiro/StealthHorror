@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterAI
 {
+    PlayerController playerController;
     MonsterController controller;
     MapGraph graph;
 
@@ -19,11 +20,28 @@ public class MonsterAI
     {
         this.controller = controller;
         this.graph = graph;
+        playerController = GameManager.Instance.Player;
     }
 
     public MonsterAIData Update(MonsterController controller)
     {
         MonsterAIData data = new MonsterAIData();
+
+        bool sameRoom = controller.CurrentRoom == playerController.CurrentRoom;
+
+        if(sameRoom)
+        {
+            switch(playerController.State)
+            {
+                case PlayerState.Hiding:
+                    Debug.DrawLine(controller.transform.position, playerController.transform.position, Color.white, 0.1f);
+                    break;
+                case PlayerState.Visible:
+                    Debug.DrawLine(controller.transform.position, playerController.transform.position, Color.grey, 0.1f);
+                    break;
+            }
+            
+        }
 
         if( !HavePath )
             CreatePathToRandomLocation(controller.gameObject);
