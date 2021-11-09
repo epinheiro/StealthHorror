@@ -5,6 +5,9 @@ using System.Linq;
 
 public class Room : MonoBehaviour
 {
+    //// Configuration
+    readonly float hidingSpotProximityCheck = 0.5f;
+
     PolygonCollider2D roomCollider;
 
     List<RoomColliderPoints> roomLimitsList;
@@ -12,6 +15,8 @@ public class Room : MonoBehaviour
     [SerializeField] Room[] adjacentRooms;
 
     [SerializeField] GameObject[] nodeToAdjacent;
+
+    [SerializeField] GameObject[] hidingPlaces;
 
     public Dictionary<Room, GameObject> nodeToAdjacentDict;
 
@@ -106,6 +111,18 @@ public class Room : MonoBehaviour
                 return room;
         }
         return null;
+    }
+
+    public bool IsPointNearHidingPlace(Vector3 position)
+    {
+        foreach(GameObject hidingPlace in hidingPlaces)
+        {
+            if( Vector2.Distance(hidingPlace.transform.position, position) <= hidingSpotProximityCheck )
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Room GetTransitionToRoom(GameObject node)

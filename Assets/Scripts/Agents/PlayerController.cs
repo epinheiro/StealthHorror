@@ -16,11 +16,34 @@ public class PlayerController : MonoBehaviour
     protected Room adjacentRoom;
     protected bool canMakeTransition;
 
-    public PlayerState State {get; protected set;} = PlayerState.Visible;
+    PlayerState _state = PlayerState.Visible;
+    public PlayerState State 
+    {
+        get
+        {
+            return _state;
+        }
+        protected set
+        {
+            _state = value;
+            switch(_state)
+            {
+                case PlayerState.Hiding:
+                    ChangeVisibility(false);
+                    break;
+                case PlayerState.Visible:
+                    ChangeVisibility(true);
+                    break;
+            }
+        }
+    } 
+
+    SpriteRenderer visual;
 
     void Awake()
     {
         GetInitialRoom();
+        visual = this.GetComponent<SpriteRenderer>();
     }
 
     protected void GetInitialRoom()
@@ -30,24 +53,53 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Update()
     {
-        Vector3 movVector = GetMovement();
+        bool isPressingInteract = IsInteracting();
 
-        Vector3 nextPositon = this.transform.position + movVector * (IsRunning() ? RunningModifier : SimpleModifier) * Time.deltaTime;
-
-        if(CurrentRoom.IsPointInsideConvexPolygon(nextPositon))
+        if(isPressingInteract)
         {
-            this.transform.position = nextPositon;
-            adjacentRoom = CurrentRoom.IsPointInRoomTransition(nextPositon);
-            canMakeTransition = adjacentRoom != null;
-            // if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
+            if(canMakeTransition)
+            {
+                SoundCommunicationLayer.instance.MakeSound(SoundType.OpenDoor, this.transform.position, CurrentRoom);
+                ChangingRoom?.Invoke(adjacentRoom);
+                CurrentRoom = adjacentRoom;
+            }
+            else
+            {
+                if(IsPossibleToHide())
+                {
+                    State = PlayerState.Hiding;
+                }
+            }
         }
-
-        if (canMakeTransition && IsInteracting())
+        else
         {
-            SoundCommunicationLayer.instance.MakeSound(SoundType.OpenDoor, this.transform.position, CurrentRoom);
-            ChangingRoom?.Invoke(adjacentRoom);
-            CurrentRoom = adjacentRoom;
+            Vector3 movVector = GetMovement();
+
+            if(movVector != Vector3.zero)
+            {
+                State = PlayerState.Visible;
+
+                Vector3 nextPositon = this.transform.position + movVector * (IsRunning() ? RunningModifier : SimpleModifier) * Time.deltaTime;
+
+                if(CurrentRoom.IsPointInsideConvexPolygon(nextPositon))
+                {
+                    this.transform.position = nextPositon;
+                    adjacentRoom = CurrentRoom.IsPointInRoomTransition(nextPositon);
+                    canMakeTransition = adjacentRoom != null;
+                    // if(canMakeTransition) Debug.LogError($"IsPointInRoomTransition [{currentRoom.IsPointInRoomTransition(nextPositon).name}]");
+                }
+            }
         }
+    }
+
+    private void ChangeVisibility(bool isVisibile)
+    {
+        visual.enabled = isVisibile;
+    }
+
+    protected bool IsPossibleToHide()
+    {
+        return CurrentRoom.IsPointNearHidingPlace(this.transform.position);
     }
 
     protected Vector3 GetMovement()
@@ -66,5 +118,4 @@ public class PlayerController : MonoBehaviour
     {
         return Input.GetButtonDown("Jump");
     }
-
 }
