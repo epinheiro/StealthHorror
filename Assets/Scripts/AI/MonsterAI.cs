@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MonsterAI
 {
+    MonsterState state = MonsterState.Patrolling;
+
     PlayerController playerController;
     MonsterController controller;
     MapGraph graph;
@@ -44,7 +46,25 @@ public class MonsterAI
         }
 
         if( !HavePath )
+        {
+            switch(state)
+            {
+                case MonsterState.Patrolling:
             CreatePathToRandomLocation(controller.gameObject);
+                    break;
+
+                case MonsterState.GoingToSound:
+                    state = MonsterState.SearchingRoom;
+                    goto case MonsterState.SearchingRoom; // TODO - remove when implement CreatePathInsideRoom
+                    break;
+
+                case MonsterState.SearchingRoom:
+                    CreatePathToRandomLocation(controller.gameObject);
+                    state = MonsterState.Patrolling;
+                    break;
+            }
+            
+        }
 
         if( IsCurrentNodeClose(controller.transform.position) )
         {
@@ -74,6 +94,7 @@ public class MonsterAI
         {
             case SoundType.OpenDoor:
                 CreatePath(controller.gameObject, position);
+                state = MonsterState.GoingToSound;
                 break;
         }
     }
