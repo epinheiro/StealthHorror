@@ -8,11 +8,11 @@ public class MonsterAI
     MonsterController controller;
     MapGraph graph;
 
-    GameObject currentNode;
-    public Vector3 CurrentNodePosition => currentNode.transform.position;
+    GraphPathData currentPathStep;
+    public Vector3 CurrentPathStepPosition => currentPathStep.position;
 
     public bool HavePath => currentPath != null && currentPath.Count > 0;
-    List<GameObject> currentPath;
+    List<GraphPathData> currentPath;
 
     float closeVerification = 0.1f;
 
@@ -48,14 +48,21 @@ public class MonsterAI
 
         if( IsCurrentNodeClose(controller.transform.position) )
         {
-            GameObject nextNodeObject = GetNextNode(true);
+            GraphPathData nextNodeObject = GetNextPosition(true);
             MapGraphNode nextNode = graph.GetNodeInfo(nextNodeObject);
-            data.movement = Vector3.zero;
-            data.room = nextNode.Room;
+            if( nextNode != null)
+            {
+                data.movement = Vector3.zero;
+                data.room = nextNode.Room;
+            }
+            else
+            {
+                data.movement = nextNodeObject.position;
+            }
         }
         else
         {
-            data.movement = (CurrentNodePosition - controller.transform.position).normalized;
+            data.movement = (CurrentPathStepPosition - controller.transform.position).normalized;
         }
 
         return data;
@@ -86,19 +93,19 @@ public class MonsterAI
         SetPath(graph.GetMinimumPath(agent, to.transform.position));
     }
 
-    private void SetPath(List<GameObject> path)
+    private void SetPath(List<GraphPathData> path)
     {
         currentPath = path;
-        currentNode = currentPath[0];
+        currentPathStep = currentPath[0];
     }
 
-    private GameObject GetNextNode(bool remove = false)
+    private GraphPathData GetNextPosition(bool remove = false)
     {
         if(currentPath.Count > 0)
         {
-            GameObject go = currentPath[0];
+            GraphPathData go = currentPath[0];
             if(remove) currentPath.RemoveAt(0);
-            currentNode = go;
+            currentPathStep = go;
             return go;
         }
         return null;
@@ -106,13 +113,13 @@ public class MonsterAI
 
     private bool IsCurrentNodeClose(Vector3 position)
     {
-        float distance = Vector2.Distance(position, currentNode.transform.position);
+        float distance = Vector2.Distance(position, currentPathStep.position);
         return distance <= closeVerification;
     }
 
     private bool IsCurrentNodeTheLast()
     {
-        return currentNode != null && currentPath.Count == 1;
+        return currentPathStep != null && currentPath.Count == 1;
     }
 
     private bool IsNodeDoor(GameObject go)

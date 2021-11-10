@@ -72,35 +72,35 @@ public class MapGraph
         ProcessNode(point2, room2, point1, room1);
     }
 
-    public MapGraphNode GetNodeInfo(GameObject goNode)
+    public MapGraphNode GetNodeInfo(GraphPathData goNode)
     {
         MapGraphNode graphNode;
-        nodes.TryGetValue(goNode.GetInstanceID(), out graphNode);
+        nodes.TryGetValue(goNode.NodeInstanceID, out graphNode);
         return graphNode;
     }
 
-    private List<GameObject> GetPath(GameObject agent, Vector3 toPosition, bool minimumCost)
+    private List<GraphPathData> GetPath(GameObject agent, Vector3 toPosition, bool minimumCost)
     {
         GameObject fromNode = GetClosestNode(agent.transform.position);
         GameObject toNode = GetClosestNode(toPosition);
 
-        List<GameObject> path = GetPath(fromNode, toNode, minimumCost);
-        path.Insert(0, fromNode); // Guarantee the first node
+        List<GraphPathData> path = GetPath(fromNode, toNode, minimumCost);
+        path.Insert(0, new GraphPathData(fromNode)); // Guarantee the first node
 
         return path;
     }
 
-    public List<GameObject> GetMinimumPath(GameObject agent, Vector3 toPosition)
+    public List<GraphPathData> GetMinimumPath(GameObject agent, Vector3 toPosition)
     {
         return GetPath(agent, toPosition, true);
     }
 
-    public List<GameObject> GetRandomPath(GameObject agent)
+    public List<GraphPathData> GetRandomPath(GameObject agent)
     {
         return GetPath(agent, GetRandomNode().Vertex.transform.position, false);
     }
 
-    public List<GameObject> GetRandomPath(GameObject agent, Vector3 toPosition)
+    public List<GraphPathData> GetRandomPath(GameObject agent, Vector3 toPosition)
     {
         return GetPath(agent, toPosition, false);
     }
@@ -110,9 +110,9 @@ public class MapGraph
         return nodes.ElementAt(UnityEngine.Random.Range(0, nodes.Keys.Count)).Value;
     }
 
-    private List<GameObject> GetPath(GameObject from, GameObject to, bool minimumCost)
+    private List<GraphPathData> GetPath(GameObject from, GameObject to, bool minimumCost)
     {
-        List<GameObject> path;
+        List<GraphPathData> path;
 
         if( minimumCost )
         {
@@ -131,13 +131,13 @@ public class MapGraph
             if (path != null)
             {
                 string pathMsg = $"SEARCH RESULT {from.name} | ";
-                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[0].transform.position, pathColor, debugDelay+1);
+                if(path.Count > 0) Debug.DrawLine(from.transform.position, path[0].position, pathColor, debugDelay+1);
                 for (int i = 0; i < path.Count-1; i++)
                 {
-                    pathMsg += $"{path[i].name} | ";
-                    Debug.DrawLine(path[i].transform.position, path[i + 1].transform.position, pathColor, debugDelay+1);
+                    pathMsg += $"{path[i].Name} | ";
+                    Debug.DrawLine(path[i].position, path[i + 1].position, pathColor, debugDelay+1);
                 }
-                pathMsg += $"{path[path.Count-1].name}";
+                pathMsg += $"{path[path.Count-1].Name}";
                 Debug.LogAssertion(pathMsg);
             }
         }
@@ -162,7 +162,7 @@ public class MapGraph
         return go;
     }
 
-    private bool GetPathRandomDepthRecursive(GameObject from, GameObject to, out List<GameObject> path, int depth = 0, HashSet<int> visited = null)
+    private bool GetPathRandomDepthRecursive(GameObject from, GameObject to, out List<GraphPathData> path, int depth = 0, HashSet<int> visited = null)
     {
         int fromInstanceID = from.GetInstanceID();
         int toInstanceID = to.GetInstanceID();
@@ -170,8 +170,8 @@ public class MapGraph
         if(fromInstanceID == toInstanceID)
         {
             if(GameManager.Instance.DebugSettings.ShowPathFindingGraphs) Debug.LogError($"SEARCH - FOUND in depth {depth}");
-            path = new List<GameObject>();
-            path.Add(to);
+            path = new List<GraphPathData>();
+            path.Add(new GraphPathData(to));
             return true;
         }
 
@@ -201,7 +201,7 @@ public class MapGraph
             {
                 if(GetPathRandomDepthRecursive(neighbor, to, out path, depth++, visited))
                 {
-                    path.Insert(0, neighbor);
+                    path.Insert(0, new GraphPathData(neighbor));
                     return true;
                 }
             }
@@ -213,7 +213,7 @@ public class MapGraph
 
     // Adapted from https://www.raywenderlich.com/3016-introduction-to-a-pathfinding
     // Adapted from http://theory.stanford.edu/~amitp/GameProgramming/
-    private List<GameObject> GetPathAStar(GameObject from, GameObject to)
+    private List<GraphPathData> GetPathAStar(GameObject from, GameObject to)
     {
         SortedDictionary<int, AStarInfo> openDict = new SortedDictionary<int, AStarInfo>();
         SortedDictionary<int, AStarInfo> closeDict = new SortedDictionary<int, AStarInfo>();
@@ -261,16 +261,16 @@ public class MapGraph
         }
 
         // Going back to fetch the path
-        List<GameObject> path = new List<GameObject>();
+        List<GraphPathData> path = new List<GraphPathData>();
 
         AStarInfo destination = closeDict.OrderBy(pair => pair.Value.HeuristicDistanceToDestiny).First().Value;
         AStarInfo goingBackNode = closeDict[destination.previous.GetInstanceID()];
 
-        path.Insert(0, goingBackNode.node);
+        path.Insert(0, new GraphPathData(goingBackNode.node));
 
         while(goingBackNode.previous != null)
         {
-            path.Insert(0, goingBackNode.node);
+            path.Insert(0, new GraphPathData(goingBackNode.node));
             goingBackNode = closeDict[goingBackNode.previous.GetInstanceID()];
         }
 
